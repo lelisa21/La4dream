@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Taking App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Note Taking App</h1>
+        <button id="themeToggle">Toggle Dark/Light Mode</button>
+        
+        <input type="text" id="noteTitle" placeholder="Note Title">
+        <textarea id="noteContent" placeholder="Write your note here..."></textarea>
+        
+        <button id="saveNoteButton">Save Note</button>
+        <button id="exportNoteButton">Export as PDF</button>
+        <button id="clearNotesButton">Clear All Notes</button>
+
+        <input type="text" id="searchInput" placeholder="Search notes...">
+
+        <ul id="noteList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
