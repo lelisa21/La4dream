@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Telegram Integration</title>
+</head>
+<body>
+    <h1>Send message to telegram channel</h1>
+    <input type="text" id="message" placeholder="Type a message">
+    <button onclick="sendMessage()">Send</button>
+    <script>
+        function sendMessage() {
+            const message = document.getElementById('message').value;
+            fetch('/sendMessage', {
+              method: 'POST',
+                headers: {
+                   'Content-Type': 'application/json'
+                },
+              body: JSON.stringify({ message })
+             }).then(res => res.json()).then(data => console.log(data)).catch(err => console.log(err));
+        }
+    </script>
+</body>
+</html>
