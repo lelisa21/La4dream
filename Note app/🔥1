@@ -1,0 +1,220 @@
+<script>
+    // Preserved and Enhanced JavaScript Functionality
+
+    // 1. Quiz System (Enhanced with Ethiopian Context)
+    const quizData = [
+        {
+            question: "What is the minimum passing grade for Ethiopian university entrance?",
+            options: ["A", "B", "C", "D"],
+            correct: 2,
+            explanation: "In the Ethiopian system, a minimum of 'C' is required for university admission."
+        },
+        {
+            question: "Which Ethiopian university is known as the 'Harvard of Africa'?",
+            options: ["AAU", "ASTU", "Haramaya", "Bahir Dar"],
+            correct: 0,
+            explanation: "Addis Ababa University (AAU) is often referred to as the Harvard of Africa."
+        }
+    ];
+
+    // 2. Pomodoro Timer (Enhanced with Amharic Support)
+    class StudyTimer {
+        constructor() {
+            this.minutes = 25;
+            this.seconds = 0;
+            this.interval = null;
+            this.isRunning = false;
+            this.language = 'english';
+        }
+
+        start() {
+            if (!this.isRunning) {
+                this.interval = setInterval(() => this.updateTimer(), 1000);
+                this.isRunning = true;
+                this.updateDisplay();
+            }
+        }
+
+        toggleLanguage() {
+            this.language = this.language === 'english' ? 'amharic' : 'english';
+            this.updateDisplay();
+        }
+
+        getTimerText() {
+            return this.language === 'english' ? 
+                `Time Remaining: ${String(this.minutes).padStart(2, '0')}:${String(this.seconds).padStart(2, '0')}` :
+                `ቀሪ ጊዜ: ${String(this.minutes).padStart(2, '0')}:${String(this.seconds).padStart(2, '0')}`;
+        }
+    }
+
+    // 3. Ethiopian Universities Data (Expanded)
+    const ethiopianUniversities = [
+        // ... (previous university data remains)
+        {
+            name: "Jimma University",
+            location: "Jimma",
+            programs: ["Public Health", "Medical Laboratory", "Nursing"],
+            website: "https://www.ju.edu.et/",
+            established: 1999
+        },
+        {
+            name: "Arba Minch University",
+            location: "Arba Minch",
+            programs: ["Water Resource Engineering", "Tourism Management", "Environmental Science"],
+            website: "https://www.amu.edu.et/",
+            established: 1986
+        }
+    ];
+
+    // 4. Progress Tracker (Enhanced with Local Storage)
+    const progressTracker = {
+        data: JSON.parse(localStorage.getItem('studyProgress')) || {
+            goals: [],
+            timeStudied: 0,
+            completedCourses: []
+        },
+
+        addGoal(goal) {
+            this.data.goals.push({
+                text: goal,
+                completed: false,
+                date: new Date().toLocaleDateString('en-ET')
+            });
+            this.save();
+        },
+
+        addStudyTime(minutes) {
+            this.data.timeStudied += minutes;
+            this.save();
+        },
+
+        completeCourse(course) {
+            this.data.completedCourses.push(course);
+            this.save();
+        },
+
+        save() {
+            localStorage.setItem('studyProgress', JSON.stringify(this.data));
+            this.display();
+        },
+
+        display() {
+            const container = document.getElementById('progress-tracker');
+            if (container) {
+                container.innerHTML = `
+                    <h3>Your Progress</h3>
+                    <p>Total Study Time: ${this.data.timeStudied} minutes</p>
+                    <h4>Current Goals:</h4>
+                    <ul>${this.data.goals.map(g => `
+                        <li>${g.text} - ${g.completed ? '✓' : '◻'}</li>
+                    `).join('')}</ul>
+                    <h4>Completed Courses:</h4>
+                    <ul>${this.data.completedCourses.map(c => `
+                        <li>${c}</li>
+                    `).join('')}</ul>
+                `;
+            }
+        }
+    };
+
+    // 5. Ethiopian Academic Calendar (Enhanced)
+    const ethiopianAcademicCalendar = {
+        currentYear: new Date().getFullYear(),
+        events: [
+            { date: "2023-09-11", event: "New Academic Year Starts", type: "academic" },
+            { date: "2023-09-27", event: "Meskel Celebration", type: "holiday" },
+            { date: "2023-12-29", event: "First Semester Exams", type: "academic" }
+        ],
+
+        getUpcomingEvents() {
+            return this.events.filter(e => new Date(e.date) > new Date())
+                             .sort((a, b) => new Date(a.date) - new Date(b.date));
+        }
+    };
+
+    // 6. University Search (Enhanced)
+    function searchUniversities() {
+        const region = document.getElementById('region').value;
+        const program = document.getElementById('program').value;
+        
+        const results = ethiopianUniversities.filter(uni => 
+            (region === 'All Regions' || uni.location === region) &&
+            (program === 'All Programs' || uni.programs.includes(program))
+        );
+
+        displayResults(results);
+    }
+
+    // 7. Dark Mode (Preserved)
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    }
+
+    // Initialize All Features
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize Quiz
+        initQuiz();
+
+        // Initialize Timer
+        const timer = new StudyTimer();
+        document.getElementById('start-timer').addEventListener('click', () => timer.start());
+        document.getElementById('toggle-timer-language').addEventListener('click', () => timer.toggleLanguage());
+
+        // Initialize Progress Tracker
+        progressTracker.display();
+
+        // Initialize Dark Mode
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Initialize University Search
+        document.getElementById('search-button').addEventListener('click', searchUniversities);
+
+        // Display Academic Calendar
+        displayAcademicCalendar();
+    });
+</script>
+
+<!-- Add these new UI elements -->
+<div class="study-tools">
+    <div class="tool-card">
+        <h3>Study Timer</h3>
+        <div id="timer-display">25:00</div>
+        <button id="start-timer">Start</button>
+        <button id="toggle-timer-language">ቋንቋ ቀይር</button>
+    </div>
+
+    <div class="tool-card">
+        <h3>Progress Tracker</h3>
+        <div id="progress-tracker"></div>
+        <button onclick="progressTracker.addGoal(prompt('Enter new goal:'))">Add Goal</button>
+    </div>
+
+    <div class="tool-card">
+        <h3>Academic Calendar</h3>
+        <div id="academic-calendar"></div>
+    </div>
+</div>
+
+<style>
+    .study-tools {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+
+    .tool-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .dark-mode .tool-card {
+        background: #2d2d2d;
+        color: white;
+    }
+</style>
