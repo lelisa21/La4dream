@@ -1,1 +1,86 @@
-1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="header-left">
+                    <a href="#">About</a>
+                    <a href="#">Store</a>
+                </div>
+                <div class="header-right">
+                    <a href="#">Gmail</a>
+                    <a href="#">Images</a>
+                    <button class="apps-button" title="Google Apps">
+                        <span class="material-icons">apps</span>
+                    </button>
+                    <img src="https://via.placeholder.com/40" alt="User Profile" class="profile-pic">
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google Logo" class="logo">
+            <div class="search-container">
+                <div class="search-bar-wrapper">
+                    <span class="material-icons search-icon">search</span>
+                    <input type="text" class="search-bar" placeholder="Search Google or type a URL">
+                    <div class="search-icons">
+                        <button class="voice-button" title="Voice Search">
+                            <span class="material-icons">mic</span>
+                        </button>
+                        <button class="image-button" title="Search by Image">
+                            <span class="material-icons">photo_camera</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <button class="search-button">Google Search</button>
+                <button class="lucky-button">I'm Feeling Lucky</button>
+            </div>
+            <div class="language-links">
+                Google offered in: 
+                <a href="#">Español</a>
+                <a href="#">Français</a>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-left">
+                <a href="#">Advertising</a>
+                <a href="#">Business</a>
+                <a href="#">How Search works</a>
+            </div>
+            <div class="footer-right">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Settings</a>
+            </div>
+        </footer>
+    </div>
+/*I added some js for more functionality even if we don't started but this is what I saw from one js tutorial for functionality of page*/
+    <script>
+        // Voice Search Button
+        const voiceButton = document.querySelector('.voice-button');
+        voiceButton.addEventListener('click', () => {
+            alert('Voice search is not implemented yet.');
+        });
+
+       <!-- Search by Image Button -->
+        const imageButton = document.querySelector('.image-button');
+        imageButton.addEventListener('click', () => {
+            alert('Search by image is not implemented yet.');
+        });
+    </script>
+
+</body>
+</html>
