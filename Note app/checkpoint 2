@@ -1,0 +1,196 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Overview</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Technology Overview</h1>
+        <nav>
+            <ul>
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#trends">Current Trends</a></li>
+                <li><a href="#future">Future of Technology</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="intro">
+            <h2>Introduction</h2>
+            <p>
+                Technology has transformed our lives in countless ways. From the way we communicate to how we work and learn, technology is at the forefront of modern society. This document explores current trends in technology and speculates on future advancements.
+            </p>
+        </section>
+
+        <section id="trends">
+            <h2>Current Trends in Technology</h2>
+            <article>
+                <h3>Artificial Intelligence</h3>
+                <p>AI is revolutionizing industries by enabling machines to perform tasks that typically require human intelligence.</p>
+            </article>
+            <article>
+                <h3>Blockchain Technology</h3>
+                <p>Blockchain provides a secure and transparent way to conduct transactions, making it vital for cryptocurrencies and beyond.</p>
+            </article>
+            <article>
+                <h3>Internet of Things (IoT)</h3>
+                <p>The IoT connects everyday devices to the internet, allowing for smarter homes and improved efficiency.</p>
+            </article>
+
+            <h3>Technology Usage Statistics</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Technology</th>
+                        <th>Percentage of Users</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Smartphones</td>
+                        <td>78%</td>
+                    </tr>
+                    <tr>
+                        <td>Social Media</td>
+                        <td>65%</td>
+                    </tr>
+                    <tr>
+                        <td>Cloud Computing</td>
+                        <td>55%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <figure>
+                <img src="technology.jpg" alt="Various technological devices" width="600" height="400">
+                <figcaption>A glimpse into the world of modern technology.</figcaption>
+            </figure>
+
+        </section>
+
+        <section id="future">
+            <h2>The Future of Technology</h2>
+            <p>The future holds exciting possibilities, including advancements in quantum computing, augmented reality (AR), and further integration of AI into our daily lives. As technology evolves, ethical considerations will also play a critical role in shaping its impact on society.</p>
+
+            <h3>Join the Conversation</h3>
+            <form action="/submit" method="post" id="contact-form">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+                <input type="submit" value="Submit">
+            </form>
+
+        </section>
+
+    </main>
+  <footer id="contact">
+        <p>&copy; 2023 Technology Overview. All rights reserved.</p>
+        <div class="social-media">
+            <a href="https://facebook.com" target="_blank">Facebook</a> |
+            <a href="https://twitter.com" target="_blank">Twitter</a> |
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+
+ //I got the text in the paragraph from google.com
+
+
+
+
+//css part
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+ul, ol {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+img {
+    display: block;
+    margin: 20px auto;
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #666;
+    text-align: center;
+}
+
+.social-media {
+    margin-top: 10px;
+}
+
+.social-media a {
+    color: #333;
+}
